@@ -42,11 +42,13 @@ RUN apt install -y        \
     librecode0            \         
     librecode-dev         \
     libzip-dev            \
-    libzip4                \
+    libzip4               \
     ziptool               \ 
     libicu-dev            \
     icu-devtools          \
-    libicu67                     
+    libicu67              \
+    git                   \
+    vim                   
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg 
@@ -76,7 +78,3 @@ opcache.max_accelerated_files=16000\n\
 opcache.save_comments=Off\n\
 ' >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
-
-
-
-#ENTRYPOINT [ "php-fpm" ]
