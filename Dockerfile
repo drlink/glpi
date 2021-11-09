@@ -42,5 +42,10 @@ RUN apt update && apt upgrade -y && apt install -y \
     libcurl4                \ 
     libsodium-dev           \
     git                     \
-    vim                      
+    vim                     \
+    apache2                 \
+    apache2-utils           \
+    elinks                  \
+    libapache2-mod-php      
+
 
