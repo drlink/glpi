@@ -53,3 +53,4 @@ RUN wget https://github.com/glpi-project/glpi/releases/download/$VER/glpi-$VER.t
 RUN tar xvf glpi-$VER.tgz 
 RUN chown -R www-data:www-data /var/www/html/
 
+EXPOSE 80

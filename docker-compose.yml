@@ -29,8 +29,8 @@ services:
   glpi:
     image: cezarrossi/glpi-beta-1
     container_name: glpi
-#    volumes:
-#      - ./bs:/config
+    volumes:
+      - ./glpi:/var/www/html/glpi
     ports:
       - 9005:80
     restart: unless-stopped
