@@ -1,0 +1,63 @@
+version: "3"
+services:
+##### Maria db - Banco de dados###########
+  mariadb:
+    image: mariadb:10-focal
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=4kywJouULbHFudiIlVvfHg==
+      - TZ=America/Sao_Paulo
+      - MYSQL_DATABASE=glpi
+      - MYSQL_USER=glpi
+      - MYSQL_PASSWORD=4kywJouULbHFudiIlVvfHg==
+    restart: unless-stopped
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - bookstack-net
+###### Gerenciador do banco de dados ######### endereço: localhost:9000
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - 9000:8080
+    networks:
+      - bookstack-net
+####### Bookstock ######################## endereço: localhost:6875
+  bookstack:
+    image: lscr.io/linuxserver/bookstack
+    container_name: bookstack
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_URL=
+      - DB_HOST=mariadb
+      - DB_USER=bookstack
+      - DB_PASS=rir8ZLpchoXprEx5mxFgCg==
+      - DB_DATABASE=bookstackapp
+    volumes:
+      - ./bs:/config
+    ports:
+      - 9001:80
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+    networks:
+      - bookstack-net
+###### Network ########
+networks: 
+  bookstack-net:
+    driver: bridge
+
+
+####### Usuario e senha iniciais #######################
+# Usuario : admin@admin.com                            #
+# Senha : password                                     #
+########################################################
+###### Dados para subistituir os iniciais  ############# 
+# Usuario : super@adm.com.br                           #
+# Senha : G5YNgA+ILY+VSnbEVdNC9g==                     #
+########################################################
+
