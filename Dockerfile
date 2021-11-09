@@ -4,28 +4,25 @@ ARG TZ='America/Sao_Paulo'
 ENV TZ=${TZ}
 RUN cp /usr/share/zoneinfo/${TZ} /etc/localtime
 
-RUN apt update && apt upgrade -y 
-RUN apt install -y php php-common 
-RUN apt install -y \
-    php-cli        \
-    php-fpm        \
-    php-json       \ 
-    php-pdo        \ 
-    php-mysql      \   
-    php-zip        \    
-    php-gd         \   
-    php-mbstring   \   
-    php-curl       \   
-    php-xml        \    
-    php-pear       \     
-    php-bcmath     \         
-    php-intl       \
-    php-imap       \
-    php-ldap       \
-    php-bz2                           
-
-
-RUN apt-get install -y \
+RUN apt update && apt upgrade -y && apt install -y \
+    php                     \
+    php-common              \
+    php-cli                 \
+    php-fpm                 \
+    php-json                \ 
+    php-pdo                 \ 
+    php-mysql               \   
+    php-zip                 \    
+    php-gd                  \   
+    php-mbstring            \   
+    php-curl                \   
+    php-xml                 \    
+    php-pear                \     
+    php-bcmath              \         
+    php-intl                \
+    php-imap                \
+    php-ldap                \
+    php-bz2                 \                   
     zip                     \ 
     libfreetype6-dev        \
     libjpeg62-turbo-dev     \
