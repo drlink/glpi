@@ -27,12 +27,12 @@ services:
       - glp-net
 ####### Bookstock ######################## endereço: localhost:6875
   glpi:
-    image: cezarrossi/glpi-beta-1
+    image: cezarrossi/glpi:beta-5.18
     container_name: glpi
     volumes:
       - ./glpi:/var/www/html/glpi
     ports:
-      - 9005:80
+      - 80:80
     restart: unless-stopped
     depends_on:
       - mariadb
