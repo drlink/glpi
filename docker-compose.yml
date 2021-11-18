@@ -27,7 +27,7 @@ services:
       - glp-net
 ####### glpi ######################## endereço: localhost:6875
   glpi:
-    image: cezarrossi/glpi:beta-5.18
+    image: cezarrossi/glpi:gama-2 #beta-5.18
     container_name: glpi
     volumes:
       - ./glpi:/var/www/html/glpi

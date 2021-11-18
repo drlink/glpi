@@ -34,6 +34,7 @@ RUN apt-get install -y \
     curl                    \
     libcurl4                \ 
     libsodium-dev           
+    
 
 RUN apt install -y        \
     libfreetype6-dev      \ 
@@ -52,8 +53,7 @@ RUN apt install -y        \
     icu-devtools          \
     git                   \
     vim                   \
-    wget                  
-    
+    wget                                  
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer 
 RUN docker-php-ext-configure gd  
