@@ -44,12 +44,12 @@ networks:
     driver: bridge
 
 
-####### Usuario e senha iniciais #######################
-# Usuario : admin@admin.com                            #
-# Senha : password                                     #
+####### Usuario e senha iniciais GLPI###################
+# Usuario :                             
+# Senha : 
 ########################################################
-###### Dados para subistituir os iniciais  ############# 
-# Usuario : super@adm.com.br                           #
-# Senha : G5YNgA+ILY+VSnbEVdNC9g==                     #
+###### Usuario inicial banco de dados      ############# 
+# Usuario : 
+# Senha : 
 ########################################################
 
