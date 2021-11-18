@@ -1,0 +1,8 @@
+db/aria_log_control
+db/aria_log.00000001
+db/ddl_recovery.log
+db/ib_buffer_pool
+db/ib_logfile0
+db/ibdata1
+db/ibtmp1
+db/multi-master.info
