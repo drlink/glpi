@@ -88,9 +88,12 @@ opcache.max_accelerated_files=16000\n\
 opcache.save_comments=Off\n\
 ' >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
-RUN wget -O /home/glpi-$VER.tgz https://github.com/glpi-project/glpi/releases/download/$VER/glpi-$VER.tgz \
-&& tar xvf /home/glpi-$VER.tgz -C /var/www/
+RUN wget -O /home/glpi-$VER.tgz https://github.com/glpi-project/glpi/releases/download/$VER/glpi-$VER.tgz && \ 
+tar xvf /home/glpi-$VER.tgz
+RUN ls
+RUN cp -r glpi /var/www/
+#CMD [ "tar xvf /home/glpi-$VER.tgz -C /var/www/" ] 
 RUN chown -R www-data:www-data /var/www/
 RUN chmod 775 -R /var/www/glpi
-
+RUN ls /var/www/glpi
 

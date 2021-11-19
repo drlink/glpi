@@ -25,14 +25,17 @@ services:
       - 9006:8080
     networks:
       - glp-net
-####### glpi ######################## endereço: localhost:6875
+####### glpi ######################## endereço: localhost
   glpi:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     image: cezarrossi/glpi:beta-5.20
     container_name: glpi
-    volumes:
-      - ./glpi:/var/www/glpi
+    #volumes:
+    #  - ./glpi:/var/www/glpi
     ports:
-      - 80:80
+      - 80:80  
     restart: unless-stopped
     depends_on:
       - mariadb
