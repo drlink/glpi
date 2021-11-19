@@ -1,10 +1,13 @@
 FROM php:7.3-apache-buster
+
 ENV APACHE_DOCUMENT_ROOT /var/www/
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
 ARG TZ='America/Sao_Paulo'
 ENV TZ=${TZ}
+
 ENV EXT_APCU_VERSION=5.1.17
 ENV VER="9.4.5"
 
@@ -85,8 +88,8 @@ opcache.max_accelerated_files=16000\n\
 opcache.save_comments=Off\n\
 ' >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
 
-RUN wget -O /home/glpi-$VER.tgz https://github.com/glpi-project/glpi/releases/download/$VER/glpi-$VER.tgz
-RUN tar xvf /home/glpi-$VER.tgz -C /var/www/
+RUN wget -O /home/glpi-$VER.tgz https://github.com/glpi-project/glpi/releases/download/$VER/glpi-$VER.tgz \
+&& tar xvf /home/glpi-$VER.tgz -C /var/www/
 RUN chown -R www-data:www-data /var/www/
 RUN chmod 775 -R /var/www/glpi
 
